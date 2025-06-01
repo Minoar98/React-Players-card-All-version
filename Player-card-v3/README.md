@@ -1,18 +1,18 @@
-🧠 React: Store Player Info in a Separate File Using Object & Array
+# 🧠 React: Store Player Info in a Separate File Using Object & Array
 
-✅ Step-by-step Plan
+## ✅ Step-by-step Plan
 
-1. Store each player as an object inside an array
-2. Export the array
-3. Import the array where needed (App.jsx)
-4. Use the array to render players using the <Card /> component
-5. Use object destructuring as default parameters in the child (Card) component
+1. Store each player as an object inside an array.
+2. Export the array.
+3. Import the array in `App.jsx`.
+4. Use the array to render players with the `<Card />` component.
+5. Use object destructuring (with default values) in the child component (`Card.jsx`).
 
-📁 Step 1: Create data.js
+## 📁 Step 1: Create `data.js`
 
-👉 This file holds all player data
+This file holds all the player information.
 
-```jsx
+```js
 const players = [
   { name: "Shakib al Hasan", profession: "Cricketer", age: 38, gender: "Male" },
   { name: "Tamim Iqbal", profession: "Cricketer", age: 37, gender: "Male" },
@@ -24,13 +24,13 @@ const players = [
     age: 40,
     gender: "Male",
   },
-  { name: " Siddikur Rahman", profession: "Golfer", age: 38, gender: "Male" },
+  { name: "Siddikur Rahman", profession: "Golfer", age: 38, gender: "Male" },
 ];
 
 export default players;
 ```
 
-📁 Step 2: Import and Use the Array in App.jsx
+📁 Step 2: Use the Array in App.jsx
 
 ```jsx
 import "./App.css";
@@ -58,15 +58,13 @@ function App() {
 export default App;
 ```
 
-📁 Step 3: Use Object Destructuring in Card Component (with Default Parameter)
+📁 Step 3: Destructure Props in Card.jsx (with Default Value)
 
 ```jsx
 import React from "react";
 import "./Card.css";
 
 const Card = ({ player: { name, profession, age, gender = "Male" } }) => {
-  // const { name, profession, age, gender } = props.player;
-
   return (
     <article id="card" className="card">
       <p>
@@ -78,22 +76,10 @@ const Card = ({ player: { name, profession, age, gender = "Male" } }) => {
       <p>
         <strong>Age:</strong> {age}
       </p>
-      <p>
-        <strong>Gender:</strong> {gender}
-      </p>
+      <p>cd
     </article>
   );
 };
 
 export default Card;
 ```
-
-✅ Summary Table
-
-| Step | Description                                                                  |
-| ---- | ---------------------------------------------------------------------------- |
-| 1    | Player data stored as objects inside an array in a separate file             |
-| 2    | The array is exported                                                        |
-| 3    | Array is imported where needed                                               |
-| 4    | Players used in `<Card />` component like `<Card player={players[0]} />`     |
-| 5    | Destructuring used in the `Card` component with a default value for `gender` |
