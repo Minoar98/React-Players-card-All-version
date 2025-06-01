@@ -83,3 +83,6 @@ const Card = ({ player: { name, profession, age, gender = "Male" } }) => {
 
 export default Card;
 ```
+
+📦 Output (UI):
+![Player Card Preview](public/Players-Card.png)
