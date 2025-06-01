@@ -1,12 +1,91 @@
-# React + Vite
+# React-Players-card-version-1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✅ Create 1 reusable component (Card.jsx)
 
-Currently, two official plugins are available:
+✅ Use it 6 times in a parent component (App.jsx)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ Pass player information as hardcoded props in object format
 
-## Expanding the ESLint configuration
+✅ Access that info in Card.jsx using props.keyName
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Step 1: Create the Card.jsx component
+
+```jsx
+import React from "react";
+
+const Card = (props) => {
+  return (
+    <div className="card">
+      <h2>{props.name}</h2>
+      <p>Age: {props.age}</p>
+      <p>Country: {props.country}</p>
+      <p>Role: {props.role}</p>
+    </div>
+  );
+};
+
+export default Card;
+```
+
+## Step 2: Use Card 6 times in the parent (App.jsx)
+
+```jsx
+import Card from "./Card/Card";
+import "./App.css";
+
+function App() {
+  return (
+    <main>
+      <header>
+        <h1>Players Card</h1>
+      </header>
+      <section className="card-container">
+        <Card
+          name="Shakib Al Hasan"
+          profession="Cricketer"
+          gender="Male"
+          age={35}
+        />
+        <Card
+          name="Tamim Iqbal"
+          profession="Cricketer"
+          gender="Male"
+          age={37}
+        />
+        <Card
+          name="Nigar Sulatan"
+          profession="Cricketer"
+          gender="Female"
+          age={27}
+        />
+        <Card name="Leo Messi" profession="Footballer" gender="Male" age={37} />
+        <Card
+          name="Cristiano Ronaldo"
+          profession="Footballer"
+          gender="Male"
+          age={37}
+        />
+        <Card
+          name="Siidikur Rahman"
+          profession="Golfer"
+          gender="Male"
+          age={37}
+        />
+      </section>
+    </main>
+  );
+}
+
+export default App;
+```
+
+📦 Output (UI):
+![Player Card Preview](public/Players-Card.png)
+
+✅ Summary
+
+| Topic           | Description                                                                              |
+| --------------- | ---------------------------------------------------------------------------------------- |
+| **Component**   | A reusable `Card` component is created to display player information.                    |
+| **Props Usage** | Player data (`name`, `profession`, `age`, `gender`) is passed as props to the component. |
+| **Reusability** | The `Card` component is reused 6 times in the parent component with different data.      |
