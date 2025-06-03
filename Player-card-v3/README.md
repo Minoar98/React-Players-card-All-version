@@ -8,6 +8,8 @@
 4. Use the array to render players with the `<Card />` component.
 5. Use object destructuring (with default values) in the child component (`Card.jsx`).
 
+![props.player](public/image.png)
+
 ## 📁 Step 1: Create `data.js`
 
 This file holds all the player information.
@@ -30,7 +32,7 @@ const players = [
 export default players;
 ```
 
-📁 Step 2: Use the Array in App.jsx
+## 📁 Step 2: Use the Array in App.jsx
 
 ```jsx
 import "./App.css";
@@ -58,30 +60,50 @@ function App() {
 export default App;
 ```
 
-📁 Step 3: Destructure Props in Card.jsx (with Default Value)
+## 📁 Step 3: Destructure Props in Card.jsx (with Default Value)
+
+1. props,
+   const { namme, profession, age, gendere } = props.player
+
+```jsx
+   const Card = (props) => {
+   const { name, profession, age, gender } = props.player;
+```
+
+2. { player }, const { name, profession, age, gender } = player
+   must mention why use { player }
+   as I am sending the data like player={players[0]}
+
+```jsx
+const Card = ({ player }) => {
+  const { name, profession, age, gender } = player;
+```
+
+3. mention {...players[0]} from the parent and receive { name, profession, age, gender } (direct destructing the object.
+   <Card {...players[0]} /> is like passing the value <Card name={name} age={age} />
 
 ```jsx
 import React from "react";
 import "./Card.css";
 
-const Card = ({ player: { name, profession, age, gender = "Male" } }) => {
+const Card = ({ name, profession, age, gender = "Male" }) => {
   return (
-    <article id="card" className="card">
-      <p>
-        <strong>Name:</strong> {name}
-      </p>
-      <p>
-        <strong>Profession:</strong> {profession}
-      </p>
-      <p>
-        <strong>Age:</strong> {age}
-      </p>
-      <p>cd
-    </article>
   );
 };
 
 export default Card;
+```
+
+```jsx
+
+        <Card {...players[0]} />
+        <Card {...players[1]} />
+        <Card {...players[2]} />
+        <Card {...players[3]} />
+        <Card {...players[4]} />
+        <Card {...players[5]} />
+
+
 ```
 
 📦 Output (UI):

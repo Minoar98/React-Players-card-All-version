@@ -1,9 +1,9 @@
 import React from "react";
 import "./Card.css";
 
-const Card = ({ player: { name, profession, age, gender = "Male" } }) => {
+const Card = ({ name, profession, age, gender }) => {
   // const { name, profession, age, gender } = props.player;
-
+  // const { name, profession, age, gender } = player;
   return (
     <article id="card" className="card">
       <p>
