@@ -1,4 +1,6 @@
-# React-Players-card-version-1
+## React-Players-card-version-1
+
+## ✅ Step-by-step Plan
 
 ✅ Create 1 reusable component (Card.jsx)
 
@@ -8,26 +10,7 @@
 
 ✅ Access that info in Card.jsx using props.keyName
 
-# Step 1: Create the Card.jsx component
-
-```jsx
-import React from "react";
-
-const Card = (props) => {
-  return (
-    <div className="card">
-      <h2>{props.name}</h2>
-      <p>Age: {props.age}</p>
-      <p>Country: {props.country}</p>
-      <p>Role: {props.role}</p>
-    </div>
-  );
-};
-
-export default Card;
-```
-
-## Step 2: Use Card 6 times in the parent (App.jsx)
+## Step 1: Use Card 6 times in the parent (App.jsx)
 
 ```jsx
 import Card from "./Card/Card";
@@ -77,6 +60,25 @@ function App() {
 }
 
 export default App;
+```
+
+## Step 2: Create the Card.jsx component
+
+```jsx
+import React from "react";
+
+const Card = (props) => {
+  return (
+    <div className="card">
+      <h2>{props.name}</h2>
+      <p>Age: {props.age}</p>
+      <p>Country: {props.country}</p>
+      <p>Role: {props.role}</p>
+    </div>
+  );
+};
+
+export default Card;
 ```
 
 📦 Output (UI):

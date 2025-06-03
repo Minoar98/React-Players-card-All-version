@@ -106,5 +106,6 @@ export default Card;
 
 ```
 
-📦 Output (UI):
+## 📦 Output (UI):
+
 ![Player Card Preview](public/Players-Card.png)

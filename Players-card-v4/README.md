@@ -32,7 +32,7 @@ const Card = ( { name, profession, age, gender = "Male" }) => {
 export default Card;
 ```
 
-## 📁 Step 2: Pass player data using `{...player}` and include a unique `key`. While using map, I must provide extra key props. otherwise React will complain an error.,
+## 📁 Step 2: Pass player data using `{...player}` and include a unique `key`. While using map, I must provide extra key props.
 
 ```jsx
 {players.map((player, index) => {
@@ -52,7 +52,10 @@ export default Card;
 
 ```
 
+## 📦 Output:
+
 ![eact will complain an error](public/image.png)
 
-📦 Output (UI):
+## 📦 Output (UI):
+
 ![Player Card Preview](public/Players-Card.png)
