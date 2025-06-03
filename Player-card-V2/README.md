@@ -8,9 +8,13 @@ Instead of writing hardcoded strings inside the component, we will:
 
 ✅ Use props.name, props.age, etc., inside the child component
 
-🔧 Step 1: Parent Component (App.jsx)
+# screenshots
 
-📁 File: src/App.jsx
+![props](public/props.png)
+
+## 🔧 Step 1: Parent Component (App.jsx)
+
+## 📁 File: src/App.jsx
 
 ```jsx
 import "./App.css";
@@ -91,9 +95,9 @@ function App() {
 export default App;
 ```
 
-🔧 Step 2: Child Component (Card.jsx)
+## 🔧 Step 2: Child Component (Card.jsx)
 
-📁 File: src/Card/Card.jsx
+## 📁 File: src/Card/Card.jsx
 
 ```jsx
 import React from "react";
@@ -113,10 +117,14 @@ const Card = (props) => {
 export default Card;
 ```
 
+## 📦 Output (UI):
+
+![Player Card Preview](public/Players-Card.png)
+
 ✅ Summary
 
-| Step | Description |
+| Step         | Description                                                        |
 | ------------ | ------------------------------------------------------------------ |
-| 1. Variables | Store player data in variables in the parent component |
-| 2. Props | Send those variables to the child component using props |
-| 3. Dynamic | This makes your code more dynamic and easy to update in the future |
+| 1. Variables | Store player data in variables in the parent component             |
+| 2. Props     | Send those variables to the child component using props            |
+| 3. Dynamic   | This makes your code more dynamic and easy to update in the future |
