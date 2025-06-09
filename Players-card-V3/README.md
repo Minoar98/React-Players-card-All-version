@@ -63,7 +63,7 @@ export default App;
 ## 📁 Step 3: Destructure Props in Card.jsx (with Default Value)
 
 1. props,
-   const { namme, profession, age, gendere } = props.player
+   const {name, profession, age, gendere } = props.player
 
 ```jsx
    const Card = (props) => {
