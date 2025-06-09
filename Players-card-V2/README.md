@@ -2,19 +2,19 @@
 
 Instead of writing hardcoded strings inside the component, we will:
 
-✅ Store data in variables in the parent (App.jsx)
+✅ Store data in variables in the parent (`App.jsx`)
 
-✅ Pass those variables as props to the child (Card.jsx)
+✅ Pass those variables as `props` to the child (`Card.jsx`)
 
-✅ Use props.name, props.age, etc., inside the child component
+✅ Use `props.name`, `props.age`, etc., inside the child component
 
 # screenshots
 
 ![props](public/props.png)
 
-## 🔧 Step 1: Parent Component (App.jsx)
+## 🔧 Step 1: Parent Component   (`App.jsx`)
 
-## 📁 File: src/App.jsx
+## 📁 File: `src/App.jsx`
 
 ```jsx
 import "./App.css";
@@ -50,6 +50,7 @@ function App() {
   const profession5 = "Golfer";
   const age5 = "38";
   const gender5 = "Male";
+
   return (
     <main>
       <header>
@@ -95,9 +96,9 @@ function App() {
 export default App;
 ```
 
-## 🔧 Step 2: Child Component (Card.jsx)
+## 🔧 Step 2: Child Component (`Card.jsx`)
 
-## 📁 File: src/Card/Card.jsx
+## 📁 File: src/Card/`Card.jsx`
 
 ```jsx
 import React from "react";
