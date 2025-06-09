@@ -1,7 +1,11 @@
-import React from "react";
+import PropTypes from 'prop-types';
+
 import "./Card.css";
 
+// immutable - will not change anymore
+
 const Card = ({ name, profession, age, gender }) => {
+
   return (
     <article className="card" id="card">
       <p>
@@ -25,3 +29,13 @@ const Card = ({ name, profession, age, gender }) => {
 };
 
 export default Card;
+
+// - To know about the variables inside the `props`
+// - What are the types of that variables
+
+// Card.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   profession: PropTypes.string.isRequired,
+//   age: PropTypes.number.isRequired,
+//   gender: PropTypes.string.isRequired,
+// };

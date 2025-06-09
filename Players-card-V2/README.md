@@ -12,7 +12,7 @@ Instead of writing hardcoded strings inside the component, we will:
 
 ![props](public/props.png)
 
-## 🔧 Step 1: Parent Component   (`App.jsx`)
+## 🔧 Step 1: Parent Component (`App.jsx`)
 
 ## 📁 File: `src/App.jsx`
 
@@ -100,6 +100,8 @@ export default App;
 
 ## 📁 File: src/Card/`Card.jsx`
 
+Method:1
+
 ```jsx
 import React from "react";
 import "./Crad.css";
@@ -116,6 +118,41 @@ const Card = (props) => {
 };
 
 export default Card;
+```
+
+Method:2
+I can do destructure `props` as well
+
+```js
+const Card = (props) => {
+  const { name, age, country, role } = props; // change here
+
+  return (
+    <div className="card">
+      <h2>{name}</h2>
+      <p>Age: {age}</p>
+      <p>Country: {country}</p>
+      <p>Role: {role}</p>
+    </div>
+  );
+};
+```
+
+Method:3
+I can do destructure `props` while receiving
+
+```js
+//change here
+const Card = ({ name, age, country, role }) => {
+  return (
+    <div className="card">
+      <h2>{name}</h2>
+      <p>Age: {age}</p>
+      <p>Country: {country}</p>
+      <p>Role: {role}</p>
+    </div>
+  );
+};
 ```
 
 ## 📦 Output (UI):

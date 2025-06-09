@@ -60,51 +60,59 @@ function App() {
 export default App;
 ```
 
-## 📁 Step 3: Destructure Props in Card.jsx (with Default Value)
+## 📁 Step 3: Destructure `props` in `Card.jsx` (with Default Value)
 
-1. props,
-   const {name, profession, age, gendere } = props.player
+1. Destruture `player`
 
 ```jsx
-   const Card = (props) => {
-   const { name, profession, age, gender } = props.player;
+const Card = (props) => {
+  const { name, profession, age, gender } = props.player; // Change here
+
+  // Rest of the code
+};
 ```
 
-2. { player }, const { name, profession, age, gender } = player
-   must mention why use { player }
-   as I am sending the data like player={players[0]}
+2. I can do destructure while receiving
+
+As I am sending the data from `App.jsx` (parent) like `player={players[0]}`, receiving like `{ player }`
 
 ```jsx
+// Change here
 const Card = ({ player }) => {
   const { name, profession, age, gender } = player;
-```
 
-3. mention {...players[0]} from the parent and receive { name, profession, age, gender } (direct destructing the object.
-   <Card {...players[0]} /> is like passing the value <Card name={name} age={age} />
-
-```jsx
-import React from "react";
-import "./Card.css";
-
-const Card = ({ name, profession, age, gender = "Male" }) => {
-  return (
-  );
+  // Rest of the code
 };
-
-export default Card;
 ```
+
+3. Use `{...players[0]}`, sending data from the parent and receiving as `props` like `{ name, profession, age, gender }` (direct destructing the object.)
+
+`<Card {...players[0]} />` is like passing the value `<Card name={name} age={age} />`
 
 ```jsx
-
-        <Card {...players[0]} />
-        <Card {...players[1]} />
-        <Card {...players[2]} />
-        <Card {...players[3]} />
-        <Card {...players[4]} />
-        <Card {...players[5]} />
-
-
+const Card = ({ name, profession, age, gender }) => {
+  // Rest of the code
+};
 ```
+
+4. As receiving the value like `{ name, profession, age, gender }`, then I can use last variable as default parameter
+
+```jsx
+const Card = ({ name, profession, age, gender = "Male" }) => {
+  // Rest of the code
+};
+```
+
+_Note:_ I can use default parameter more than one but make sure it will turn as default parameter from the right
+
+```jsx
+// More than one default parameter
+const Card = ({ name, profession, age = 30, gender = "Male" }) => {
+  // Rest of the code
+};
+```
+
+_Note:_ Use default parameter only when destructure the `props` while receiving
 
 ## 📦 Output (UI):
 

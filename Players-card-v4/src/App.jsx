@@ -1,6 +1,12 @@
-import "./App.css";
+// Installed package
+// import React from 'react';
+
+// Self made package/folder/file
 import Card from "./Card/Card";
 import players from "./data";
+
+// CSS files
+import "./App.css";
 
 function App() {
   return (
