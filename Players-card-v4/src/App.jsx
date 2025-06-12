@@ -1,5 +1,6 @@
 // Installed package
 // import React from 'react';
+import { useState } from "react";
 
 // Self made package/folder/file
 import Card from "./Card/Card";
@@ -9,6 +10,10 @@ import players from "./data";
 import "./App.css";
 
 function App() {
+  const arr = useState(10);
+
+  console.log(arr);
+
   return (
     <main>
       <header>
@@ -16,7 +21,7 @@ function App() {
       </header>
       <section className="card-container">
         {players.map((player, index) => {
-          console.log(player);
+          // console.log(player);
           return <Card key={index} {...player} />;
         })}
       </section>

@@ -1,14 +1,35 @@
-import PropTypes from 'prop-types';
-
 import "./Card.css";
 
 // immutable - will not change anymore
+// 1. non-reusable component
+// 2. not able to show single responsibility principle
+// 3. not able to show separate of concern
 
-const Card = ({ name, profession, age, gender }) => {
+// README.md
+// 1. key
+// 2. props are immutable
+// 3. style er priority gula
+// 4. react er inline style
+// 5. rest operator
+// 6. Importing style (kunta age/kunta pore)
+
+// v5
+// hook -> useState
+
+const Card = ({ name, ...restProps }) => {
+  // console.log("restProps: ", restProps); // Object
+  const { profession, age, gender } = restProps;
 
   return (
     <article className="card" id="card">
-      <p>
+      <p
+        style={{
+          padding: "20px",
+          background: "pink",
+          // 'font-weight': 'bold'
+          fontWeight: "bold",
+        }}
+      >
         <strong>Name:</strong>
         {name}
       </p>
@@ -29,13 +50,3 @@ const Card = ({ name, profession, age, gender }) => {
 };
 
 export default Card;
-
-// - To know about the variables inside the `props`
-// - What are the types of that variables
-
-// Card.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   profession: PropTypes.string.isRequired,
-//   age: PropTypes.number.isRequired,
-//   gender: PropTypes.string.isRequired,
-// };
