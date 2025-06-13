@@ -1,7 +1,5 @@
 import "./Card.css";
-const Card = ({ name, ...restProps }) => {
-  const { profession, age, gender } = restProps;
-
+const Card = ({ name, profession, age, gender }) => {
   return (
     <article className="card" id="card">
       <p>
