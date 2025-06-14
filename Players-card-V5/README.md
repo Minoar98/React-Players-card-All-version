@@ -24,19 +24,18 @@
 
 Store changing data in a component
 
-Automatically update the UI when the data (state) changes
-
-Trigger re-rendering of the component
-
-## React-এ আমরা state ব্যবহার করি কারণ:
-
 Component-এর ভেতরে changing data store করার জন্য
 
+Automatically update the UI when the data (state) changes
+
 যখন এই data change হয়, React নিজে নিজে UI update করে
+
+Trigger re-rendering of the component
 
 State change মানেই React নতুন করে component render করে
 
 🟢 Without `state` — data can change, but UI won’t update
+
 🛑 যদি normal variable use করি → data change হলেও UI change হয় না
 
 ```jsx
