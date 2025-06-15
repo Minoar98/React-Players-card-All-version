@@ -78,3 +78,66 @@ function App() {
 
 3. The **first element** of the array is the **current state value**,  
    and the **second element** is a **function to update that value**.
+
+## "Why do we create functions inside a React component instead of outside?"
+
+We usually create functions inside a React component when that function needs to use or update state, `props`, or needs to stay connected with the component’s internal behavior.
+
+React কম্পোনেন্টের ভিতরে ফাংশন লিখলে, সেই ফাংশন সহজেই কম্পোনেন্টের state এবং props ব্যবহার করতে পারে। কারণ, সেই ফাংশন কম্পোনেন্টের context-এর মধ্যে থাকে।
+
+যখন আমরা কোনও বাটন ক্লিক, ইনপুট পরিবর্তন বা কম্পোনেন্টের ভেতরের কোনো ইভেন্ট হ্যান্ডেল করতে চাই — তখন ফাংশনটি কম্পোনেন্টের ভিতরেই লিখি।
+এতে করে ফাংশনটি সরাসরি কম্পোনেন্টের ডেটা অ্যাক্সেস করতে পারে এবং UI কে ঠিকভাবে রেন্ডার করতে সাহায্য করে।
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  // 👉 This function is inside because it uses state
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return <button onClick={handleClick}>Clicked: {count}</button>;
+}
+```
+
+Here, handleClick() is written inside because:
+
+It uses the component’s count state.
+
+It updates state using setCount.
+
+✅ Main Reasons:
+
+| Reason                         | Explanation                                                            |
+| ------------------------------ | ---------------------------------------------------------------------- |
+| **1. Access to state & props** | Inside functions can directly use `state`, `props`, and hooks.         |
+| **2. Closure support**         | The function “remembers” the values from its component at render time. |
+| **3. Clean and scoped logic**  | It keeps component-specific logic inside the component.                |
+| **4. Easier to read**          | Function is close to the JSX and logic it relates to.                  |
+
+## 🔸 When do we write functions outside?
+
+We write outside when:
+
+It doesn’t need state or props.
+
+It's reusable across components.
+
+```js
+function calculateTotal(price, tax) {
+  return price + price * tax;
+}
+```
+
+## What is initial state in React?
+
+In React, `initial state` mane holo — jokhon kono component first time render hoy, tokhon je default value ta state variable er moddhe thake, seta ke amra boli initial state.
+
+React e state holo ekta special variable, ja amra useState() hook diye declare kori. Ei state er value change hole component automatic re-render hoy.
+
+```js
+const [name, setName] = useState("Hasan"); // "Hasan" is the initial state
+```
+
+![initialstate](public/image.png)
