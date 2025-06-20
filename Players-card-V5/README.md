@@ -141,3 +141,47 @@ const [name, setName] = useState("Hasan"); // "Hasan" is the initial state
 ```
 
 ![initialstate](public/image.png)
+
+## React state life cycle
+
+![initialstate](public/statelifecycle.png)
+
+Step 1: State Declaration
+
+```jsx
+const [val, setVal] = useState(0);
+```
+
+val is the state variable (initially 0).
+
+setVal is the function used to update val.
+
+Step 2, hval is a function.
+
+"React internally keeps track of the state variable val (initially 0) and the hval function."
+
+Step 3: JSX Render
+
+React displays the component’s JSX in the user interface.
+
+```js
+return <p onClick={hval}>{val}</p>;
+```
+
+Step 4: onClick
+
+Clicking the element calls hval().
+
+hval is a function reference, not a function call.
+
+Inside hval, setVal(val + 1) is called, which schedules a state update.
+
+This triggers a re-render of the component.
+
+Step 5: Re-render Trigger
+
+setVal() updates the state.
+
+This triggers React to re-render the component.
+
+React goes back to Step 1 with the new val, and the cycle continues.
