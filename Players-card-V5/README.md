@@ -186,68 +186,71 @@ This triggers React to re-render the component.
 
 React goes back to Step 1 with the new val, and the cycle continues.
 
-
 ## When use `onClick={clickHandler}`?
+
 Answer
+
 1. `clickHandler` is not taking any parameter
 2. Used function reference in `onClick`
 
 ```js
 const App = () => {
-    const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-    // After clicking the `Increase` button, `clickHandler` will execute
-    const clickHandler = () => {
-      setCount(10); // Update the state
-    }
+  // After clicking the `Increase` button, `clickHandler` will execute
+  const clickHandler = () => {
+    setCount(10); // Update the state
+  };
 
-    return (
-      <button onClick={clickHandler}>Increase</button>
-    )
-}
+  return <button onClick={clickHandler}>Increase</button>;
+};
 ```
 
 ## When use `onClick={() => clickHandler(x)}`?
+
 Answer
+
 1. `clickHandler` is taking a parameter
 2. Used arrow function reference in `onClick`
 3. Inside arrow function, call the `clickHandler` function with some value
 
 ```js
 const App = () => {
-    const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-    // After clicking the `Increase` button, `clickHandler` will execute
-    const clickHandler = (cnt) => {
-      setCount(cnt); // Update the state
-    }
+  // After clicking the `Increase` button, `clickHandler` will execute
+  const clickHandler = (cnt) => {
+    setCount(cnt); // Update the state
+  };
 
-    return (
-      <button onClick={() => clickHandler(10)}>Increase</button>
-    )
-}
+  return <button onClick={() => clickHandler(10)}>Increase</button>;
+};
 ```
 
 ## If State update depends on previous state value
+
 Answer:
+
 - Use `setCount((prevState) => prevState + 1)` instead of `setCount(count+1)`
+
 1. Pass a arrow function in `setCount` instead of value
 2. That arrow function is taking a parameter which is the previous state provided by React itself
 3. Now you can update the state & that arrow function must return the updated state
 
-
 ## Why do I write the code while updating the state which is depending on its previous state?
+
 Answer:
+
 - When I use multiple state update operation, then I must ensure that for a specific state update operation which state value depends on its previous state value, I am using the right previous state value
 - If I have the following code:
 
 ```js
 const clickHandler = () => {
-  setCount(count+1);
+  setCount(count + 1);
   setIsLoading(false);
   setData(data);
   setValue(value);
-}
+};
 ```
 
 - Then I must write the following code only for `setCount` as `count` depends on its previous state value:
@@ -258,5 +261,33 @@ const clickHandler = () => {
   setIsLoading(false);
   setData(data);
   setValue(value);
-}
+};
+```
+
+CSS File Import Types in React
+
+1. Inline CSS
+2. External CSS - fine
+3. Styled component
+4. CSS Module - good
+5. Tailwind CSS - best & recommended
+
+6. CSS Module
+7. File name should be `<component-file-name>.module.css`
+8. Import like the following
+
+```js
+import styles from "./App.module.css";
+```
+
+3. Use in `jsx` like dot notation:
+
+```js
+<section className={styles.cardContainer}></section>
+```
+
+4. But if I write the css class name `.card-container` in the `<x>.module.css` file then I have to use that css class like the following
+
+```js
+<section className={styles["card-container"]}></section>
 ```

@@ -5,6 +5,7 @@ const players = [
     profession: "Cricketer",
     gender: "Male",
     age: 37,
+    isFavorite: false
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ const players = [
     profession: "Cricketer",
     gender: "Male",
     age: 35,
+    isFavorite: false
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ const players = [
     profession: "Cricketer",
     gender: "Female",
     age: 27,
+    isFavorite: false
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ const players = [
     profession: "Footballer",
     gender: "Male",
     age: 37,
+    isFavorite: false
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ const players = [
     profession: "Footballer",
     gender: "Male",
     age: 40,
+    isFavorite: false
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ const players = [
     profession: "Golfer",
     gender: "Male",
     age: 37,
+    isFavorite: false
   },
 ];
 
