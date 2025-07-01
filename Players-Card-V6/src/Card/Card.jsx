@@ -35,7 +35,6 @@ const Card = ({
         {/* Heart Icon */}
         {/* {hearticon} */}
         <HeartIcon
-
           id={id}
           onClickHandler={onClickHandler}
           isFavorite={isFavorite}
