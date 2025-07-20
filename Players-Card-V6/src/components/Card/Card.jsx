@@ -1,4 +1,3 @@
-import React from "react";
 import { Heart } from "lucide-react";
 import CardWrapper from "./CardWrapper";
 import HeartIcon from "./HeartIcon";

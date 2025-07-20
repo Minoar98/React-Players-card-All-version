@@ -223,25 +223,29 @@ The rest operator (...) in JavaScript collects multiple values into one array or
 
 ```jsx
 const Card = ({ name, ...restProps }) => {
-
   const { profession, age, gender } = restProps;
+};
 ```
 
-## Importing Styles
+## Importing Orders
 
+```jsx
 // Installed package
-
-// import React from 'react';
+import React from "react";
 import { useState } from "react";
 
 // Self made package/folder/file
-
 import Card from "./Card/Card";
 import players from "./data";
 
 // CSS files
 import "./App.css";
+```
 
 ## 📦 Output (UI):
 
 ![Player Card Preview](public/Players-Card.png)
+
+```
+
+```

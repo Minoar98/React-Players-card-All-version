@@ -2,13 +2,16 @@
 import { useState } from "react";
 import { Heart } from "lucide-react";
 
+// Self made package/folder/file
+import data from "./data";
+import Card from "./components/Card/Card";
+import HeartIcon from "./components/Card/HeartIcon";
+import Input from "./components/Input";
+import Allinput from "./components/AllInput";
+import UserForm from "./components/UserForm";
+
 // css file
 import "./App.css";
-// Self made package/folder/file
-
-import data from "./data";
-import Card from "./Card/Card";
-import HeartIcon from "./Card/HeartIcon";
 
 function App() {
   const [players, setPlayers] = useState(data);
@@ -30,6 +33,11 @@ function App() {
         <header>
           <h1 className="span">Players Card</h1>
         </header>
+        <div>
+          {/* <Allinput/> */}
+          <UserForm />
+          {/* <Input /> */}
+        </div>
         <section className="card-container">
           {players.map((player) => {
             return (
@@ -44,7 +52,4 @@ function App() {
 
 export default App;
 
-// 1. props -> primitive data (string, number, boolean etc)
-// 2. props -> function
-// 3. props -> component
-// 3. props -> jsx
+// topics

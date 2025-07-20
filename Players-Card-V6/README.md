@@ -53,19 +53,19 @@ Props Drilling means:
 
 🔁 Passing data (props) from a parent component to a deeply nested child component through multiple layers, even when the middle components don’t use that data — they only pass it along.
 
-![Props Drilling](./public/props-drilling.png)
+![Props Drilling](photo/props-drilling.png)
 
 🔁 What is Happening?
 
-App has all data: id, name, age, gender, profession, clickHandler, isFavorite.
+`App` has all data: `id`, `name`, `age`, `gender`, `profession`, `clickHandler`, `isFavorite`.
 
 It passes:
 
-name, age, gender, profession → to Card
+`name`, `age`, `gender`, `profession` → to `Card`
 
-id, isFavorite, clickHandler → also to Card (even though Card doesn’t need them)
+`Card` doesn't need of `id`, `isFavorite`, `clickHandler` props
 
-Then Card passes id, isFavorite, clickHandler → to HeartIcon (which actually needs them).
+But `Card` passes `id`, `isFavorite`, `clickHandler` → to `HeartIcon` (those props are needed in `HeartIcon`).
 
 ## Passing props & children through a component
 
@@ -114,23 +114,126 @@ const Card = ({
 
 ### `CardWrapper` child component
 
-...restProps means
+`...restProps` means
 
-restProps -> {id: 'id1', className: 'cl'}
+`restProps` -> `{id: 'id1', className: 'cl'}`
 
 ```JSX
 const CardWrapper = ({ children, ...restProps }) => {
-console.log("Children:", children);
-return <article {...restProps}>{children}</article>;
+  console.log("Children:", children);
+  return <article {...restProps}>{children}</article>;
 };
 ```
 
 `<article {...restProps}>{children}</article>`
 
-Here {...restProps} means
+Here `{...restProps}` means
 
 ```jsx
 <article id="id1" className="cl">
   ...
 </article>
 ```
+
+## Passing jsx as a props
+
+- 1. Parent Component
+
+```jsx
+
+    <div>
+      <Card
+        title="Welcome"
+        content={<p>This is some <strong>bold</strong> content passed as a prop!</p>}
+      />
+
+  ;
+```
+
+- 2. Child Component (Card.jsx)
+
+```jsx
+const Card = ({ title, content }) => {
+  return (
+    <div className="border p-4 rounded-md shadow-md">
+      <h2 className="text-xl font-bold mb-2">{title}</h2>
+      <div>{content}</div>
+    </div>
+  );
+```
+
+💡 What's Happening?
+
+- passing `<p>...</p>` (a JSX element) as the content `prop`.
+
+- Inside the Card component, render it with {content}.
+
+- This is useful when I want a child to render custom JSX defined in the parent.
+
+## Passing component as a props
+
+- One component to another component as a prop
+
+- Then render it inside the receiver component
+
+1. Pass component as a prop
+
+```jsx
+<Wrapper CustomComponent={SomeComponent} />
+```
+
+2. Render inside the child
+
+```jsx
+const Wrapper = ({ CustomComponent }) => {
+  return (
+    <div>
+      <h2>Inside Wrapper</h2>
+      <CustomComponent /> {/* 👈 render passed component */}
+    </div>
+  );
+};
+```
+
+### 🧠 Two-Way Binding মানে কী?
+
+👉 Two-way binding মানে:
+
+1. State ➡️ UI
+2. UI ➡️ State
+
+মানে:
+
+ইনপুট ফিল্ডে যা লিখবো তা state এ যাবে।
+
+আর state এ যা থাকবে, তা ইনপুটে দেখাবে।
+
+দুই দিকেই ডেটা যাওয়া-আসা করে — তাই এর নাম two-way binding.
+
+```jsx
+
+
+const Example = () => {
+  const [name, setName] = useState(""); // state তৈরি
+
+  const handleChange = (e) => {
+    setName(e.target.value); // ইনপুটে লেখা → state এ সেট
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={name}           // state → input
+        onChange={handleChange} // input → state
+      />
+      <p>Your name is: {name}</p> {/* state → UI */}
+    </div>
+  );
+```
+
+### ❌ যদি Two-way binding না করতেন?
+
+ইনপুটে লিখতেন ঠিকই, কিন্তু state জানতো না কী লিখেছেন।
+
+state আপডেট করলে ইনপুট জানতো না কী দেখাতে হবে।

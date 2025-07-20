@@ -4,9 +4,9 @@ import players from "./data";
 
 function App() {
   return (
-    <main>
+    <main className="flex flex-col items-center bg-black text-white p-10 border-4 border-white rounded-[25px] max-w-[800px] mx-auto my-[30px] gap-[30px]">
       <header>
-        <h1>Players Card</h1>
+        <h1 className="span">Players Card</h1>
       </header>
       <section className="card-container">
         {/* // using spread operator */}

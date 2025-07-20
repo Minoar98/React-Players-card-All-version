@@ -1,11 +1,11 @@
 const players = [
   {
     id: 1,
-    name: "Shakib Al Hasan",
-    profession: "Cricketer",
-    gender: "Male",
-    age: 37,
-    isFavorite: true,
+    name: "Shakib Al Hasan", // type -> text
+    profession: "Cricketer", // select/option
+    gender: "Male", // select/option
+    age: 37, // type -> number
+    isFavorite: true, // checkbox
   },
   {
     id: 2,

@@ -103,21 +103,27 @@ export default App;
 Method:1
 
 ```jsx
-import React from "react";
-import "./Crad.css";
-
 const Card = (props) => {
   return (
-    <div className="card">
-      <h2>{props.name}</h2>
-      <p>Age: {props.age}</p>
-      <p>Country: {props.country}</p>
-      <p>Role: {props.role}</p>
-    </div>
+    <article id="card" className="card">
+      <p>
+        <strong>Name: </strong>
+        {props.name}
+      </p>
+      <p>
+        <strong>Profession: </strong>
+        {props.profession}
+      </p>
+      <p>
+        <strong>Age: </strong>
+        {props.age}
+      </p>
+      <p>
+        <strong>Gender: </strong>
+        {props.gender}
+      </p>
+    </article>
   );
-};
-
-export default Card;
 ```
 
 Method:2
